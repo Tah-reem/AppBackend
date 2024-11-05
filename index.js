@@ -37,6 +37,10 @@ mongoose.connect(uri, {
 .then(() => console.log('Connected to MongoDB Atlas'))
 .catch((err) => console.error('Error connecting to MongoDB Atlas:', err));
 
+app.get("/", (req, res) => {
+  res.json("hello")
+})
+
 app.post("/register", async (req, res) => {
   let user = new User(req.body);
   let result = await user.save();
