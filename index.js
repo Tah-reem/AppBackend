@@ -30,12 +30,13 @@ const router = express.Router();
 const uri = process.env.MONGO_URI;
 // console.log('MongoDB URI:', uri); 
 
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+    console.log('Connected to MongoDB');
 })
-.then(() => console.log('Connected to MongoDB Atlas'))
-.catch((err) => console.error('Error connecting to MongoDB Atlas:', err));
+.catch((err) => {
+    console.log('Error connecting to MongoDB Atlas:', err);
+});
 
 app.get("/", (req, res) => {
   res.json("hello")
