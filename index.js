@@ -19,7 +19,7 @@ const jwtKey = "e-comm";
 const cors = require("cors");
 
 app.use(cors({
-  origin: "https://app-frontend-sigma.vercel.app",
+  origin: "https://app-frontend-git-master-tah-reems-projects.vercel.app",
   credentials: true
 }));
 
